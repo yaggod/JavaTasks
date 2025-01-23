@@ -26,10 +26,11 @@ public class Program
 				executeSubtask3();
 				break;
 			case 4:
+				executeSubtask4();
 				break;
 			case 5:
 				break;
-			case 6:
+			default:
 				throw new OperationNotSupportedException("");
 		} 
 	}
@@ -117,5 +118,41 @@ public class Program
 		}
 
 		System.out.println(result);
+	}
+
+    private static void executeSubtask4() 
+	{
+		System.out.println("Enter roads count: ");
+		int roadsCount = scanner.nextInt();
+		int foundRoadHeight = 0;
+		int foundRoad = -1;
+		for(int road = 0; road < roadsCount; road++)
+		{
+			System.out.println("Enter tunnels count on the road: ");
+			int tunnelsCount = scanner.nextInt();
+			int currentRoadLowestHeight = 0;
+			boolean chosenAny = false;
+			for(int tunnel = 0; tunnel < tunnelsCount; tunnel++)
+			{
+				System.out.println("Enter tunnel height: ");
+				int height = scanner.nextInt();
+				if(!chosenAny)
+				{
+					currentRoadLowestHeight = height;
+					chosenAny = true;
+				}
+				else
+				{
+					currentRoadLowestHeight = Math.min(currentRoadLowestHeight, height);
+				}
+			}
+			if(foundRoadHeight < currentRoadLowestHeight || road == 0)
+			{
+				foundRoadHeight = currentRoadLowestHeight;
+				foundRoad = road;
+			}
+		}
+
+		System.out.println(foundRoad + 1 + " " + foundRoadHeight);
 	}
 }
