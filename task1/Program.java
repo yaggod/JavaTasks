@@ -55,9 +55,10 @@ public class Program
 
     private static void executeSubtask2() 
 	{
-        System.out.println("Enter numbers count: ");
-		int numbersCount = scanner.nextInt();
+		int numbersCount;
 		int result = 0;
+        System.out.println("Enter numbers count: ");
+		numbersCount = scanner.nextInt();
 		for(int i = 0; i < numbersCount; i++)
 		{
 			if(i % 2 == 0)
@@ -122,16 +123,18 @@ public class Program
 
     private static void executeSubtask4() 
 	{
-		System.out.println("Enter roads count: ");
-		int roadsCount = scanner.nextInt();
+		int roadsCount;
 		int foundRoadHeight = 0;
 		int foundRoad = -1;
+		System.out.println("Enter roads count: ");
+		roadsCount = scanner.nextInt();
 		for(int road = 0; road < roadsCount; road++)
 		{
-			System.out.println("Enter tunnels count on the road: ");
-			int tunnelsCount = scanner.nextInt();
+			int tunnelsCount;
 			int currentRoadLowestHeight = 0;
 			boolean chosenAny = false;
+			System.out.println("Enter tunnels count on the road: ");
+			tunnelsCount = scanner.nextInt();
 			for(int tunnel = 0; tunnel < tunnelsCount; tunnel++)
 			{
 				System.out.println("Enter tunnel height: ");
