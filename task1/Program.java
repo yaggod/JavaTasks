@@ -29,6 +29,7 @@ public class Program
 				executeSubtask4();
 				break;
 			case 5:
+				executeSubtask5();
 				break;
 			default:
 				throw new OperationNotSupportedException("");
@@ -157,5 +158,31 @@ public class Program
 		}
 
 		System.out.println(foundRoad + 1 + " " + foundRoadHeight);
+	}
+
+    private static void executeSubtask5() 
+	{
+		int number;
+		System.out.println("Enter number: ");
+		number = scanner.nextInt();
+		if(isDoubleEven(number))
+			System.out.println(number + " is double even");
+		else
+			System.out.println(number + " is not double even");
+
+    }
+
+    private static boolean isDoubleEven(int number)
+	{
+		String numberString = number + "";
+		int summ = 0;
+		int production = 1;
+		for(int i = 0; i < numberString.length(); i++)
+		{
+			int digit = Character.digit(numberString.charAt(i), 10);
+			summ += digit;
+			production *= digit;
+		}
+		return (summ % 2 == 0 && production % 2 == 0);
 	}
 }
