@@ -3,7 +3,7 @@ import javax.naming.OperationNotSupportedException;
 
 public class Program
 {
-	private static Scanner scanner = new Scanner(System.in);
+	private static Scanner scanner = new Scanner(System.in, "UTF-8");
 
 	public static void main(String[] args) throws OperationNotSupportedException
 	{
@@ -23,6 +23,7 @@ public class Program
 				executeSubtask2();
 				break;
 			case 3:
+				executeSubtask3();
 				break;
 			case 4:
 				break;
@@ -66,4 +67,55 @@ public class Program
 
 		System.out.println(result);
     }
+
+    private static void executeSubtask3() 
+	{
+		int destinationX, destinationY, stepSize;
+		int stepsCount = 0;
+		int currentX = 0;
+		int currentY = 0;
+		int result = 0;
+		boolean foundAnswer = false;
+		String lastDirection;
+
+		System.out.println("Enter destination x: ");
+		destinationX = scanner.nextInt();
+		System.out.println("Enter destination y: ");
+		destinationY = scanner.nextInt();
+		while(true)
+		{
+			System.out.println("Enter direction: ");
+			lastDirection = scanner.next();
+			if(lastDirection.equals("стоп")) // read a comment below
+				break;
+			System.out.println("Enter step size: ");
+			stepSize = scanner.nextInt();
+			switch(lastDirection) // hardcoded literals but who cares
+			{
+				case "восток":
+					currentX += stepSize;
+					break;
+				case "запад":
+					currentX -= stepSize;
+					break;
+				case "север":
+					currentY  += stepSize;
+					break;
+				case "юг":
+					currentY -= stepSize;
+					break;
+
+				default:
+					System.out.println("Unknown direction");
+					continue;
+			}
+			stepsCount++;
+			if(currentX != destinationX || currentY != destinationY)
+				continue;
+			if(!foundAnswer)
+				result = stepsCount;
+		}
+
+		System.out.println(result);
+	}
 }
