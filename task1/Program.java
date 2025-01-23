@@ -20,6 +20,7 @@ public class Program
 				executeSubtask1();
 				break;
 			case 2:
+				executeSubtask2();
 				break;
 			case 3:
 				break;
@@ -49,4 +50,20 @@ public class Program
 
 		System.out.println(stepsCount + " steps in total");
 	}
+
+    private static void executeSubtask2() 
+	{
+        System.out.println("Enter numbers count: ");
+		int numbersCount = scanner.nextInt();
+		int result = 0;
+		for(int i = 0; i < numbersCount; i++)
+		{
+			if(i % 2 == 0)
+				result += scanner.nextInt();
+			else
+				result -= scanner.nextInt();
+		}
+
+		System.out.println(result);
+    }
 }
