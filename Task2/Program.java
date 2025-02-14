@@ -2,8 +2,7 @@ public class Program
 {
     public static void main(String[] args) 
     {
-        int[] a = {2,-3,4,-2,2,1,-1,4};
-        FindHighestSubsum(a);
+            
     }
 
     private static String FindLongestSubstring(String originalString) 
@@ -97,6 +96,17 @@ public class Program
         return result;
     }
 
+    private static int[][] RotateClockwise(int[][] matrix)
+    {
+        int rowsCount = matrix.length;
+        int columnsCount = matrix[0].length;
+        int[][] result = new int[columnsCount][rowsCount];
+        for(int i = 0; i < rowsCount; i++)
+            for(int j = 0; j < columnsCount; j++)
+                result[j][rowsCount-i-1] = matrix[i][j];
+
+
+        return result;
+    }
 
 }    
-
