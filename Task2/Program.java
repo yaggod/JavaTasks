@@ -20,7 +20,7 @@ public class Program
                                         i != 0 &&
                                         originalString.charAt(lastFoundCharPosition) == currentChar);
             if(metThisCharBefore)
-            {
+           {
                 if(currentSubstringSize > longestfoundSubstringSize)
                     {
                         longestFoundSubstringStart = currentSubstringStart;
@@ -51,8 +51,7 @@ public class Program
         int leftPointer = 0;
         int rightPointer = 0;
         while(leftPointer + rightPointer < left.length + right.length)
-        {
-            int chosenValue;
+        {            int chosenValue;
             if(leftPointer == left.length) 
                 chosenValue = right[rightPointer++];
             else if(rightPointer == right.length)
@@ -113,8 +112,7 @@ public class Program
     {
         // no hashmaps allowed (i guess), so O(n^2) is the only viable solution left
         for(int i = 0; i < array.length - 1; i++)
-            for(int j = i + 1; j < array.length; j++)
-                if(array[i] + array[j] == target)
+            for(int j = i + 1; j < array.length; j++)                if(array[i] + array[j] == target)
                     return new int[]{array[i], array[j]};
         return null;
     }
@@ -125,6 +123,34 @@ public class Program
         for(int i = 0; i < matrix.length; i++)
             for(int j = 0; j < matrix[i].length; j++)
                 result += matrix[i][j];
+
+        return result;
+    }
+
+    private static int[] GetMaxInEachRow(int[][] matrix)
+    {
+        int[] result = new int[matrix.length];
+        for(int i = 0; i < matrix.length; i++)
+        {
+            int foundValue = matrix[i][0];
+            for(int j = 1; j < matrix[i].length; j++)
+            {
+                foundValue = Integer.max(foundValue, matrix[i][j]);
+            }            
+            result[i] = foundValue;
+        }
+    return result;
+    }
+
+    private static int[][] RotateCounterclockwise(int[][] matrix)
+    {
+        int rowsCount = matrix.length;
+        int columnsCount = matrix[0].length;
+        int[][] result = new int[columnsCount][rowsCount];
+        for(int i = 0; i < rowsCount; i++)
+            for(int j = 0; j < columnsCount; j++)
+                result[columnsCount-j-1][i] = matrix[i][j];
+
 
         return result;
     }
