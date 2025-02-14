@@ -2,7 +2,7 @@ public class Program
 {
     public static void main(String[] args) 
     {
-            
+
     }
 
     private static String FindLongestSubstring(String originalString) 
@@ -109,4 +109,13 @@ public class Program
         return result;
     }
 
+    private static int[] FindPairHavingSum(int[] array, int target)
+    {
+        // no hashmaps allowed (i guess), so O(n^2) is the only viable solution left
+        for(int i = 0; i < array.length - 1; i++)
+            for(int j = i + 1; j < array.length; j++)
+                if(array[i] + array[j] == target)
+                    return new int[]{array[i], array[j]};
+        return null;
+    }
 }    
