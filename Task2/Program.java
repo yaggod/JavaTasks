@@ -1,0 +1,48 @@
+public class Program
+{
+    public static void main(String[] args) 
+    {
+        
+    }
+
+    private static String FindLongestSubstring(String originalString)
+    {
+        int[] lastFoundCharPositions = new int[1 << 16]; // goodbye ram but i guess we cant use hashmaps for this task
+        int currentSubstringStart = 0;
+        int currentSubstringSize = 0;
+        int longestFoundSubstringStart = 0;
+        int longestfoundSubstringSize = 0;
+        for(int i = 0; i < originalString.length(); i++)
+        {
+            char currentChar = originalString.charAt(i);
+            int lastFoundCharPosition = lastFoundCharPositions[currentChar];
+            boolean metThisCharBefore = (lastFoundCharPosition >= currentSubstringStart &&
+                                        i != 0 &&
+                                        originalString.charAt(lastFoundCharPosition) == currentChar);
+            if(metThisCharBefore)
+            {
+                if(currentSubstringSize > longestfoundSubstringSize)
+                    {
+                        longestFoundSubstringStart = currentSubstringStart;
+                        longestfoundSubstringSize = currentSubstringSize;
+                    }
+                    currentSubstringStart = lastFoundCharPosition + 1;
+                    currentSubstringSize = i - currentSubstringStart + 1;
+            }
+            else
+            {
+                currentSubstringSize++;
+            }
+            lastFoundCharPositions[currentChar] = i;
+        }
+
+        if(currentSubstringSize > longestfoundSubstringSize)
+        {
+            longestFoundSubstringStart = currentSubstringStart;
+            longestfoundSubstringSize = currentSubstringSize;
+        }
+
+        return originalString.substring(longestFoundSubstringStart, longestFoundSubstringStart + longestfoundSubstringSize);
+    }
+
+}
