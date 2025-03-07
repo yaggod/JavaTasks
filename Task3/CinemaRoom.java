@@ -8,4 +8,9 @@ public class CinemaRoom
     {
         this.seatsRows = seatsRows;
     }
+
+    public ArrayList<ArrayList<Seat>> getSeatsRows() 
+    {
+        return seatsRows;
+    }
 }

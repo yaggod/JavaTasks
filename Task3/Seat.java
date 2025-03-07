@@ -1,4 +1,4 @@
-class Seat
+public class Seat
 {
     private final int seatNumber; 
 
