@@ -5,6 +5,7 @@ public class CinemaRoom
 {
 
     ArrayList<ArrayList<Seat>> seatsRows = new ArrayList<>();
+    ArrayList<SessionScheduleItem> sessionsSchedule = new ArrayList<>();
     
     public CinemaRoom(ArrayList<Integer> columnsSeatsCount) 
     {
@@ -29,6 +30,11 @@ public class CinemaRoom
         return seatsRows;
     }
 
+    public void AddScheduleItem(SessionScheduleItem item)
+    {
+        sessionsSchedule.add(item);
+    }
+
     @Override
     public String toString()
     {
@@ -45,8 +51,16 @@ public class CinemaRoom
             }
         }
         builder.append("\n\n* - Taken");
+        for(SessionScheduleItem item : sessionsSchedule)
+        {
+            builder.append('\n');
+            builder.append(item.startTime);
+            builder.append(" - ");
+            builder.append(item.endTime);            
+        }
 
         return builder.toString();
     }
+
 
 }

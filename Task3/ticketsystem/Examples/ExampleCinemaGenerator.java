@@ -9,6 +9,7 @@ public class ExampleCinemaGenerator
         Cinema cinema = new Cinema();
         CinemaRoom room = GetExampleRoom();
         TakeRandomSeats(room, 10);
+        FillSchedule(room, 5);
         cinema.AddRoom(room);
         
         return  cinema;
@@ -35,6 +36,32 @@ public class ExampleCinemaGenerator
             int i = random.nextInt(seatsRows.size());
             int j = random.nextInt(seatsRows.get(i).size());
             seatsRows.get(i).get(j).takeSeat();            
+        }
+    }
+
+    public static void FillSchedule(CinemaRoom room, int filmsCount)
+    {
+        Random random = new Random();
+        Calendar calendar = Calendar.getInstance();
+        int breakTime = 15;
+        Film[] films = new Film[5];
+        films[0] = new Film("jonkler", 80);
+        films[1] = new Film("5 jonklers per minute", 120);
+        films[2] = new Film("biojonkler", 45);
+        films[3] = new Film("captain jonkler", 65);
+        films[4] = new Film("jonkler the unchained", 70);
+
+        
+        for(int i = 0; i < filmsCount; i++)
+        {
+            Film filmToAdd = films[random.nextInt(films.length)];
+            Date startTime = calendar.getTime();
+            calendar.add(Calendar.MINUTE, filmToAdd.getMinutesDuration());
+            Date endTime = calendar.getTime();
+            SessionScheduleItem item = new SessionScheduleItem(filmToAdd, startTime, endTime);
+            calendar.add(Calendar.MINUTE, breakTime);
+
+            room.AddScheduleItem(item);
         }
     }
 }
