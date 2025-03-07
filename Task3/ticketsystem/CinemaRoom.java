@@ -55,7 +55,8 @@ public class Seat
             builder.append("\n\n");
             for(Seat seat : row)
             {
-                builder.append("\t" + seat.getSeatNumber());
+                builder.append("\t");
+                builder.append(seat.getSeatNumber());
             }
         }
 
