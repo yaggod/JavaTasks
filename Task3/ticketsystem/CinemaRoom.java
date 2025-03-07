@@ -19,6 +19,7 @@ public class CinemaRoom
             ArrayList<Seat> row = new ArrayList<>();
             for(int j = 0; j < columnsSeatsCount.get(i); j++)
                 row.add(new Seat(currentSeatNumber++));
+                
             seatsRows.add(row);
         }
     }
