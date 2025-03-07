@@ -7,8 +7,10 @@ public class ExampleCinemaGenerator
     public static Cinema GetExampleCinema()
     {
         Cinema cinema = new Cinema();
-        cinema.AddRoom(GetExampleRoom());
-
+        CinemaRoom room = GetExampleRoom();
+        TakeRandomSeats(room, 10);
+        cinema.AddRoom(room);
+        
         return  cinema;
     }
 
@@ -22,5 +24,17 @@ public class ExampleCinemaGenerator
         
         CinemaRoom room = new CinemaRoom(list);
         return room;
+    }
+
+    public static void TakeRandomSeats(CinemaRoom room, int seatsToTake)
+    {
+        Random random = new Random();
+        for(int seat = 0; seat < seatsToTake; seat++)
+        {
+            ArrayList<ArrayList<Seat>> seatsRows = room.getSeatsRows();
+            int i = random.nextInt(seatsRows.size());
+            int j = random.nextInt(seatsRows.get(i).size());
+            seatsRows.get(i).get(j).takeSeat();            
+        }
     }
 }

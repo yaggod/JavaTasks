@@ -40,8 +40,11 @@ public class CinemaRoom
             {
                 builder.append("\t");
                 builder.append(seat.getSeatNumber());
+                if(!seat.isFree())
+                    builder.append('*');
             }
         }
+        builder.append("\n\n* - Taken");
 
         return builder.toString();
     }
