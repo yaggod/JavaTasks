@@ -4,42 +4,24 @@ import java.util.*;
 public class CinemaRoom 
 {
 
-
-public class Seat
-{
-    private int seatNumber; 
-
-    public int getSeatNumber() 
-    {
-        return seatNumber;
-    }
-
-    private void setSeatNumber(int seatNumber)
-    {
-        this.seatNumber = seatNumber;
-    }
-}
-
-    ArrayList<ArrayList<Seat>> seatsRows;
+    ArrayList<ArrayList<Seat>> seatsRows = new ArrayList<>();
     
-    public CinemaRoom(ArrayList<ArrayList<Seat>> seatsRows) 
+    public CinemaRoom(ArrayList<Integer> columnsSeatsCount) 
     {
-        this.seatsRows = seatsRows;
-        RecaltulateSeatNumbers();
+        RecaltulateSeatNumbers(columnsSeatsCount);
     }
 
-    private void RecaltulateSeatNumbers() 
+    private void RecaltulateSeatNumbers(ArrayList<Integer> columnsSeatsCount) 
     {
-        int currentNumber = 1;
-        for(ArrayList<Seat> row : seatsRows)
+        int currentSeatNumber = 1;
+        for(int i = 0; i < columnsSeatsCount.size(); i++)
         {
-            for(Seat seat : row)
-            {
-                seat.setSeatNumber(currentNumber++);
-            }
+            ArrayList<Seat> row = new ArrayList<>();
+            for(int j = 0; j < columnsSeatsCount.get(i); j++)
+                row.add(new Seat(currentSeatNumber++));
+            seatsRows.add(row);
         }
     }
-
 
     public ArrayList<ArrayList<Seat>> getSeatsRows() 
     {
