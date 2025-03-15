@@ -6,7 +6,7 @@ public class Cinema
     private final static ArrayList<Cinema> cinemas = new ArrayList<>();
 
     private final ArrayList<CinemaRoom> cinemaRooms = new ArrayList<>();
-    private String cinemaName;
+    private final String cinemaName;
 
     public Cinema(String name)
     {
