@@ -3,7 +3,7 @@ package ticketsystem;
 import java.util.*;
 public class AuthorizationSystem
 {
-    private static ArrayList<User> allUsers = new ArrayList<>();
+    private final static ArrayList<User> allUsers = new ArrayList<>();
 
     static // just as an example
     {

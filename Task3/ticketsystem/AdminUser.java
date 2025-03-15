@@ -14,7 +14,7 @@ public class AdminUser extends User
     @Override
     public ArrayList<UserCommandBase> GetUserSpecificCommands() 
     {
-        ArrayList<UserCommandBase> result = new ArrayList<UserCommandBase>();
+        ArrayList<UserCommandBase> result = new ArrayList<>();
         result.add(new AddCinemaCommand());
 
         return result;
