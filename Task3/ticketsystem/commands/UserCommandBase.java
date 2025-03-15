@@ -2,18 +2,17 @@ package ticketsystem.commands;
 
 public abstract class UserCommandBase 
 {
-    protected String description;
-
-    public UserCommandBase(String description)
+    public UserCommandBase()
     {
-        this.description = description;
     }
+
+    public abstract String GetDescription();
 
     public abstract void Execute();
 
     @Override
     public String toString()
     {
-        return description;
+        return GetDescription();
     }
 }
