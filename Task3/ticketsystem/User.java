@@ -1,6 +1,7 @@
 package ticketsystem;
 
 import java.util.*;
+import ticketsystem.commands.GetCinemasListCommand;
 import ticketsystem.commands.UserCommandBase;
 
 public abstract class User 
@@ -31,6 +32,7 @@ public abstract class User
     public ArrayList<UserCommandBase> GetBasicCommands() // lazy initialization would've been better but who cares
     {
         ArrayList<UserCommandBase> result = new ArrayList<>();
+        result.add(new GetCinemasListCommand());
 
         return result;
     }
