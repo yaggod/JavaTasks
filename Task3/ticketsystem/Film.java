@@ -11,17 +11,17 @@ public class Film
         this.minutesDuration = minutesDuration;
     }
 
-    public String getFilmName()
+    public String GetFilmName()
     {
         return filmName;
     }
 
-    public void setFilmName(String filmName)
+    public void SetFilmName(String filmName)
     {
         this.filmName = filmName;
     }
 
-    public int getMinutesDuration() 
+    public int GetMinutesDuration() 
     {
         return minutesDuration;
     }

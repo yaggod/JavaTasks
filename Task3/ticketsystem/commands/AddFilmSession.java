@@ -27,7 +27,7 @@ public class AddFilmSession extends UserCommandBase
             return;
         Film film = UserInputObjectSelector.SelectFilm();
 
-        System.out.println("Enter \'dd.MM.yyyy HH:mm\' formated date to show \"" + film.getFilmName() + "\" film on: ");
+        System.out.println("Enter \'dd.MM.yyyy HH:mm\' formated date to show \"" + film.GetFilmName() + "\" film on: ");
         try
         {
             SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy HH:mm");
@@ -35,7 +35,7 @@ public class AddFilmSession extends UserCommandBase
             Calendar calendar = Calendar.getInstance();
             Date startTime = dateFormat.parse(input);
             calendar.setTime(startTime);
-            calendar.add(Calendar.MINUTE, film.getMinutesDuration());
+            calendar.add(Calendar.MINUTE, film.GetMinutesDuration());
             Date endTime = calendar.getTime();
             SessionScheduleItem item = new SessionScheduleItem(film, startTime, endTime);
             room.AddScheduleItem(item);

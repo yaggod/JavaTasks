@@ -26,7 +26,7 @@ public class CinemaRoom
         }
     }
 
-    public ArrayList<ArrayList<Seat>> getSeatsRows() 
+    public ArrayList<ArrayList<Seat>> GetSeatsRows() 
     {
         return seatsRows;
     }
@@ -57,8 +57,8 @@ public class CinemaRoom
             for(Seat seat : row)
             {
                 builder.append("\t");
-                builder.append(seat.getSeatNumber());
-                if(!seat.isFree())
+                builder.append(seat.GetSeatNumber());
+                if(!seat.IsFree())
                     builder.append('*');
             }
         }
@@ -66,7 +66,7 @@ public class CinemaRoom
         for(SessionScheduleItem item : sessionsSchedule)
         {
             builder.append('\n');
-            builder.append(item.film.getFilmName());
+            builder.append(item.film.GetFilmName());
             builder.append("\t at");
             builder.append(item.startTime);
             builder.append(" - ");

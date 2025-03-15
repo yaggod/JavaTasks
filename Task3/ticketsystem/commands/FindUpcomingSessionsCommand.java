@@ -26,7 +26,7 @@ public class FindUpcomingSessionsCommand extends UserCommandBase
                 {
                     SessionScheduleItem scheduleItem = schedule.get(j);
                     if(currentTime.after(scheduleItem.startTime))
-                        System.out.println(scheduleItem.film.getFilmName() + " in " + cinema.GetCinemaName() + " in room " + (i+1) + " at " + scheduleItem.startTime);
+                        System.out.println(scheduleItem.film.GetFilmName() + " in " + cinema.GetCinemaName() + " in room " + (i+1) + " at " + scheduleItem.startTime);
                 }
             }
         }

@@ -10,22 +10,22 @@ public class Seat
         this.seatNumber = seatNumber;
     }
     
-    public int getSeatNumber() 
+    public int GetSeatNumber() 
     {
         return seatNumber;
     }
 
-    public boolean isFree() 
+    public boolean IsFree() 
     {
         return isFree;
     }
 
-    public void takeSeat() 
+    public void TakeSeat() 
     {
         this.isFree = false;
     }
 
-    public void freeSeat()
+    public void FreeSeat()
     {
         this.isFree = true;
     }
