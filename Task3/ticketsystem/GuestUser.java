@@ -3,10 +3,10 @@ package ticketsystem;
 import java.util.*;
 import ticketsystem.commands.*;
 
-public class AdminUser extends User
+public class GuestUser extends User
 {
 
-    public AdminUser(String login, String password) 
+    public GuestUser(String login, String password) 
     {
         super(login, password);
     }
@@ -15,7 +15,6 @@ public class AdminUser extends User
     public ArrayList<UserCommandBase> GetUserSpecificCommands() 
     {
         ArrayList<UserCommandBase> result = new ArrayList<UserCommandBase>();
-        result.add(new AddCinemaCommand());
 
         return result;
     }

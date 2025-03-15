@@ -5,9 +5,10 @@ public class AuthorizationSystem
 {
     private static ArrayList<User> allUsers = new ArrayList<>();
 
-    static
+    static // just as an example
     {
         allUsers.add(new AdminUser("admin", "admin"));
+        allUsers.add(new GuestUser("user", "password"));
     }
 
     public static User TryToLogin(String login, String password)
