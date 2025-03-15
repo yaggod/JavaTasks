@@ -10,7 +10,7 @@ public class AddCinemaRoomCommand extends UserCommandBase
     @Override
     public String GetDescription() 
     {
-        return "Add new Cinema";
+        return "Add new CinemaRoom";
     }
 
     @Override
