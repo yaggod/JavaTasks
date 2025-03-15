@@ -16,6 +16,7 @@ public class AdminUser extends User
     {
         ArrayList<UserCommandBase> result = new ArrayList<>();
         result.add(new AddCinemaCommand());
+        result.add(new AddCinemaRoomCommand());
 
         return result;
     }
