@@ -19,10 +19,10 @@ public class AddCinemaRoomCommand extends UserCommandBase
         Scanner scanner = new Scanner(System.in);
         if(Cinema.GetCinemas().size() < 1)
         {
-            System.out.println("No cinemas too add room in");
+            System.out.println("No cinemas to add room in");
             return;
         }
-        System.out.println("Enter index of Cinema too add room in: ");
+        System.out.println("Enter index of Cinema to add room in: ");
         int cinemaIndex;
         do
         {
