@@ -3,17 +3,15 @@ import java.util.*;
 
 public class Cinema
 {
-    private static ArrayList<Cinema> cinemas = new ArrayList<>();
+    private final static ArrayList<Cinema> cinemas = new ArrayList<>();
 
-    private ArrayList<CinemaRoom> allRooms = new ArrayList<>();
+    private final ArrayList<CinemaRoom> cinemaRooms = new ArrayList<>();
     private String cinemaName;
 
     public Cinema(String name)
     {
         cinemaName = name;
     }
-
-    
 
 
     public static ArrayList<Cinema> GetCinemas() 
@@ -29,7 +27,12 @@ public class Cinema
 
     public void AddRoom(CinemaRoom room)
     {
-        allRooms.add(room);
+        cinemaRooms.add(room);
+    }
+
+    public ArrayList<CinemaRoom> GetRooms()
+    {
+        return cinemaRooms;
     }
 
     public String GetCinemaName() 
