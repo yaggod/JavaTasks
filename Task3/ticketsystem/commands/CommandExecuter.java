@@ -5,7 +5,7 @@ import ticketsystem.*;
 
 public class CommandExecuter 
 {
-    private static Scanner scanner = new Scanner(System.in);
+    private final static Scanner scanner = new Scanner(System.in);
     public static void RunCommandExecutionLoop(User user)
     {
         ArrayList<UserCommandBase> commands = user.GetAllCommands();
