@@ -5,14 +5,16 @@ import javax.naming.OperationNotSupportedException;
 public class CinemaRoom 
 {
 
-    ArrayList<ArrayList<Seat>> seatsRows = new ArrayList<>();
+    //ArrayList<ArrayList<Seat>> seatsRows = new ArrayList<>();
+    ArrayList<Integer> rowsSeatsCount;
     ArrayList<SessionScheduleItem> sessionsSchedule = new ArrayList<>();
     
-    public CinemaRoom(ArrayList<Integer> columnsSeatsCount) 
+    public CinemaRoom(ArrayList<Integer> rowsSeatsCount) 
     {
-        RecaltulateSeatNumbers(columnsSeatsCount);
+        this.rowsSeatsCount = rowsSeatsCount;
     }
 
+    /*
     private void RecaltulateSeatNumbers(ArrayList<Integer> columnsSeatsCount) 
     {
         int currentSeatNumber = 1;
@@ -25,10 +27,11 @@ public class CinemaRoom
             seatsRows.add(row);
         }
     }
+    */
 
-    public ArrayList<ArrayList<Seat>> GetSeatsRows() 
+    public ArrayList<Integer> GetSeatsRows() 
     {
-        return seatsRows;
+        return rowsSeatsCount;
     }
 
     public void AddScheduleItem(SessionScheduleItem item) throws OperationNotSupportedException
@@ -40,6 +43,7 @@ public class CinemaRoom
                 throw new OperationNotSupportedException();
         }
         sessionsSchedule.add(item);
+        item.SetupSeats(rowsSeatsCount);
     }
 
     public ArrayList<SessionScheduleItem> GetSchedule()
@@ -47,34 +51,15 @@ public class CinemaRoom
         return sessionsSchedule;
     }
 
-    @Override
-    public String toString()
+    public ArrayList<SessionScheduleItem> GetUpcomingFilms() 
     {
-        StringBuilder builder = new StringBuilder();
-        for(ArrayList<Seat> row : seatsRows)
-        {
-            builder.append("\n\n");
-            for(Seat seat : row)
-            {
-                builder.append("\t");
-                builder.append(seat.GetSeatNumber());
-                if(!seat.IsFree())
-                    builder.append('*');
-            }
-        }
-        builder.append("\n\n* - Taken");
+        ArrayList<SessionScheduleItem> result = new ArrayList<>();
+        Date currentTime = Calendar.getInstance().getTime();
         for(SessionScheduleItem item : sessionsSchedule)
-        {
-            builder.append('\n');
-            builder.append(item.film.GetFilmName());
-            builder.append("\t at");
-            builder.append(item.startTime);
-            builder.append(" - ");
-            builder.append(item.endTime);            
-        }
+            if(currentTime.before(item.startTime))
+                result.add(item);
 
-        return builder.toString();
+        return result;
     }
-
 
 }
