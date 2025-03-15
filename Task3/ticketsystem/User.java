@@ -1,0 +1,39 @@
+package ticketsystem;
+
+import java.util.*;
+import ticketsystem.commands.UserCommandBase;
+
+public abstract class User 
+{
+    protected final String login;
+    protected String password;
+    protected final Scanner scanner = new Scanner(System.in);
+
+    public User(String login, String password)
+    {
+        this.login = login;
+        this.password = password;
+    }
+
+    public boolean TryToLogin(String login, String password)
+    {
+        return this.login.equals(login) && this.password.equals(password);
+    }
+    public ArrayList<UserCommandBase> GetAllCommands()
+    {
+        ArrayList<UserCommandBase> result = new ArrayList<>();
+        result.addAll(GetBasicCommands());
+        result.addAll(GetUserSpecificCommands());
+
+        return result;
+    }
+
+    public ArrayList<UserCommandBase> GetBasicCommands() // lazy initialization would've been better but who cares
+    {
+        ArrayList<UserCommandBase> result = new ArrayList<>();
+
+        return result;
+    }
+
+    public abstract ArrayList<UserCommandBase> GetUserSpecificCommands();
+}
