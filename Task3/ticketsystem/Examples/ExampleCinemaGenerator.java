@@ -12,7 +12,7 @@ public class ExampleCinemaGenerator
         FillSchedule(room, 5);
         cinema.AddRoom(room);
         
-        Cinema.AddCinema(cinema);
+        CinemasRepository.AddCinema(cinema);
         return  cinema;
     }
 

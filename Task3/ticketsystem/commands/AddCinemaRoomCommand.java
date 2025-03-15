@@ -3,6 +3,7 @@ package ticketsystem.commands;
 import java.util.*;
 import ticketsystem.Cinema;
 import ticketsystem.CinemaRoom;
+import ticketsystem.UserInputObjectSelector;
 
 public class AddCinemaRoomCommand extends UserCommandBase
 {
@@ -17,21 +18,10 @@ public class AddCinemaRoomCommand extends UserCommandBase
     public void Execute()
     {
         Scanner scanner = new Scanner(System.in);
-        if(Cinema.GetCinemas().size() < 1)
-        {
-            System.out.println("No cinemas to add room in");
+        Cinema cinema = UserInputObjectSelector.SelectCinema();
+        if(cinema == null)
             return;
-        }
-        System.out.println("Enter index of Cinema to add room in: ");
-        int cinemaIndex;
-        do
-        {
-            cinemaIndex = scanner.nextInt();
-        }
-        while(cinemaIndex < 1 | cinemaIndex > Cinema.GetCinemas().size());
-
-
-        Cinema cinema = Cinema.GetCinemas().get(cinemaIndex - 1);
+            
         System.out.println("Enter rows count in the room: ");
         int rowsCount = scanner.nextInt();
         ArrayList<Integer> columns = new ArrayList<>();

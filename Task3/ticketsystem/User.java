@@ -10,7 +10,6 @@ public abstract class User
 {
     protected final String login;
     protected String password;
-    protected final Scanner scanner = new Scanner(System.in);
 
     public User(String login, String password)
     {

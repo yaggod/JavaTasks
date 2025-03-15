@@ -2,6 +2,7 @@ package ticketsystem.commands;
 
 import java.util.*;
 import ticketsystem.Cinema;
+import ticketsystem.CinemasRepository;
 
 public class AddCinemaCommand extends UserCommandBase
 {
@@ -19,7 +20,7 @@ public class AddCinemaCommand extends UserCommandBase
         System.out.println("Enter the name of your Cinema: ");
         String cinemaName = scanner.next();
         Cinema newCinema = new Cinema(cinemaName);
-        Cinema.AddCinema(newCinema);
+        CinemasRepository.AddCinema(newCinema);
     }
 
 

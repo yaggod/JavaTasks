@@ -2,6 +2,7 @@ package ticketsystem.commands;
 
 import java.util.*;
 import ticketsystem.Cinema;
+import ticketsystem.CinemasRepository;
 
 public class GetCinemasListCommand extends UserCommandBase
 {
@@ -15,7 +16,7 @@ public class GetCinemasListCommand extends UserCommandBase
     @Override
     public void Execute()
     {
-        ArrayList<Cinema> cinemas = Cinema.GetCinemas();
+        ArrayList<Cinema> cinemas = CinemasRepository.GetCinemas();
         for (int i = 0; i < cinemas.size(); i++) 
         {
             System.out.println(i + 1 + ": " + cinemas.get(i).GetCinemaName()); 
