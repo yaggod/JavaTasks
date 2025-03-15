@@ -1,11 +1,27 @@
 package ticketsystem;
 
-import ticketsystem.examples.*;
-
+import java.util.*;
+import ticketsystem.commands.CommandExecuter;
 public class Program
 {
     public static void main(String[] args) 
     {
-        System.out.println(ExampleCinemaGenerator.GetExampleCinema().allRooms.get(0));
+        Scanner scanner = new Scanner(System.in);
+        User user;
+        do
+        {
+        System.out.println("Enter user login: ");
+        String login = scanner.nextLine();
+        System.out.println("Enter user password: ");
+        String password = scanner.nextLine();
+        user = AuthorizationSystem.TryToLogin(login, password);
+        if(user != null)
+            break;
+
+        System.out.println("Incorrect password or username");
+        }
+        while(true);
+        CommandExecuter.RunCommandExecutionLoop(user);
+    
     }
 }

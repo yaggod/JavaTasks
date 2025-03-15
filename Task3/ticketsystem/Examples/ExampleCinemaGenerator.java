@@ -6,12 +6,13 @@ public class ExampleCinemaGenerator
 {
     public static Cinema GetExampleCinema()
     {
-        Cinema cinema = new Cinema();
+        Cinema cinema = new Cinema("Example cinema");
         CinemaRoom room = GetExampleRoom();
         TakeRandomSeats(room, 10);
         FillSchedule(room, 5);
         cinema.AddRoom(room);
         
+        Cinema.AddCinema(cinema);
         return  cinema;
     }
 
