@@ -1,6 +1,7 @@
 package ticketsystem;
 
 import java.util.*;
+import ticketsystem.commands.FindUpcomingSessionsCommand;
 import ticketsystem.commands.GetCinemasListCommand;
 import ticketsystem.commands.GetFilmsCommand;
 import ticketsystem.commands.ShowCinemaRoomCommand;
@@ -36,6 +37,7 @@ public abstract class User
         result.add(new GetCinemasListCommand());
         result.add(new ShowCinemaRoomCommand());
         result.add(new GetFilmsCommand());
+        result.add(new FindUpcomingSessionsCommand());
 
         return result;
     }

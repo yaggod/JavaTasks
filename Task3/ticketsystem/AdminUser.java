@@ -18,6 +18,7 @@ public class AdminUser extends User
         result.add(new AddCinemaCommand());
         result.add(new AddCinemaRoomCommand());
         result.add(new AddNewFilmCommand());
+        result.add(new AddFilmSession());
 
         return result;
     }

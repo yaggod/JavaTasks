@@ -3,9 +3,9 @@ import java.util.*;
 
 public class SessionScheduleItem 
 {
-    Film film;
-    Date startTime;
-    Date endTime;
+    public Film film;
+    public Date startTime;
+    public Date endTime;
 
     public SessionScheduleItem(Film film, Date startTime, Date endTime) 
     {

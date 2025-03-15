@@ -18,6 +18,7 @@ public class AddCinemaRoomCommand extends UserCommandBase
     public void Execute()
     {
         Scanner scanner = new Scanner(System.in);
+        
         Cinema cinema = UserInputObjectSelector.SelectCinema();
         if(cinema == null)
             return;

@@ -1,5 +1,6 @@
 package ticketsystem;
 import java.util.*;
+import javax.naming.OperationNotSupportedException;
 
 public class CinemaRoom 
 {
@@ -30,9 +31,20 @@ public class CinemaRoom
         return seatsRows;
     }
 
-    public void AddScheduleItem(SessionScheduleItem item)
+    public void AddScheduleItem(SessionScheduleItem item) throws OperationNotSupportedException
     {
+        for(SessionScheduleItem existingItem : sessionsSchedule)
+        {
+            if(item.startTime.after(existingItem.startTime) &&
+                item.startTime.before(existingItem.endTime))
+                throw new OperationNotSupportedException();
+        }
         sessionsSchedule.add(item);
+    }
+
+    public ArrayList<SessionScheduleItem> GetSchedule()
+    {
+        return sessionsSchedule;
     }
 
     @Override
@@ -54,6 +66,8 @@ public class CinemaRoom
         for(SessionScheduleItem item : sessionsSchedule)
         {
             builder.append('\n');
+            builder.append(item.film.getFilmName());
+            builder.append("\t at");
             builder.append(item.startTime);
             builder.append(" - ");
             builder.append(item.endTime);            

@@ -27,16 +27,19 @@ public class UserInputObjectSelector
     
     public static Cinema SelectCinema()
     {
+        System.out.println("Enter index of Cinema: ");
         return SelectObject(CinemasRepository.GetCinemas());
     }
 
     public static CinemaRoom SelectRoom(ArrayList<CinemaRoom> rooms)
     {
+        System.out.println("Enter index of CinemaRoom: ");
         return SelectObject(rooms);
     }
 
     public static Film SelectFilm()
     {
+        System.out.println("Enter index of Film: ");
         return SelectObject(FilmsRepository.GetFilms());
     }
 
