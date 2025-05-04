@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yaggod.budgetcontrolsystem.MainController">
+   <children>
+      <MenuBar>
+        <menus>
+          <Menu mnemonicParsing="false" text="Program">
+            <items>
+              <MenuItem mnemonicParsing="false" onAction="#Exit" text="Close" />
+              <MenuItem mnemonicParsing="false" text="Add Person" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+   </children>
+</StackPane>
