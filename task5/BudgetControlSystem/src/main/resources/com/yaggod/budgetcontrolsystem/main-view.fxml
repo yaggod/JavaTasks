@@ -3,17 +3,32 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<StackPane alignment="TOP_LEFT" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.yaggod.budgetcontrolsystem.MainController">
-   <children>
-      <MenuBar>
-        <menus>
-          <Menu mnemonicParsing="false" text="Program">
-            <items>
-              <MenuItem mnemonicParsing="false" onAction="#Exit" text="Close" />
-              <MenuItem mnemonicParsing="false" text="Add Person" />
-            </items>
-          </Menu>
-        </menus>
-      </MenuBar>
-   </children>
-</StackPane>
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="600" minWidth="600"
+            xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.yaggod.budgetcontrolsystem.MainController">
+    <top>
+        <MenuBar>
+            <menus>
+                <Menu mnemonicParsing="false" text="Программа">
+                    <items>
+                        <MenuItem onAction="#OpenPersonCreationWindow" text="Добавить жильца"/>
+                        <MenuItem onAction="#Exit" text="Выход"/>
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+    </top>
+    <center>
+        <SplitPane dividerPositions="0.2">
+            <VBox prefWidth="100.0">
+                <Label text="Добавить операцию"/>
+                <ComboBox fx:id="PersonsComboBox" onMouseClicked="#UpdatePersons" promptText="Совершивший операцию"/>
+                <TextField fx:id="DifferenceField" promptText="Сумма"/>
+                <Button onAction="#Submit" text="Ввод"/>
+            </VBox>
+            <ScrollPane fitToHeight="true" fitToWidth="true">
+                <TableView fx:id="TransactionsTable"/>
+            </ScrollPane>
+        </SplitPane>
+    </center>
+</BorderPane>
